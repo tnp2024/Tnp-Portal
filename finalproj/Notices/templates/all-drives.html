@@ -1,46 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Drive Data</title>
-    <style>
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 10px;
-            width: 300px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        }
-
-        .title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .job-role {
-            font-size: 16px;
-            color: #666;
-            text-align: center;
-        }
-
-        .logo {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
     <h1>All Drive Data</h1>
@@ -48,14 +14,18 @@
         {% for drive in alldrives %}
         <div class="card">
             <li><a href="{% url 'drive' drive.drive_id %}">{{ drive.title }}</a></li>
-            
             <img src="{{ drive.company_logo.url }}" alt="Company Logo" class="logo">
-            
-            
             <div class="job-role">Job Role: {{ drive.job_role }}</div>
+            <div class="card-actions">
+                <form action="{% url 'update-drive' drive.drive_id %}" method="GET">
+                    <button type="submit">Edit</button>
+                </form>
+                <form action="{% url 'delete-drive' drive.drive_id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
         </div>
-        <a href="{% url 'update-drive' drive.drive_id %}">Edit</a>
-        <a href="{% url 'delete-drive' drive.drive_id %}">Delete</a>
         {% endfor %}
     </div>
 </body>
