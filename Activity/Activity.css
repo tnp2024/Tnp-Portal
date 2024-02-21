@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+    align-items: flex-start; /* Adjust as needed */
+}
+
+/* Adjust width and other styles for the sidebar and createdrive as needed */
+app-sidebar {
+    width: 300px; /* Adjust width as needed */
+}
+
+app-activity {
+    flex: 1; /* Takes remaining space */
+    /* Add any other styles as needed */
+}
