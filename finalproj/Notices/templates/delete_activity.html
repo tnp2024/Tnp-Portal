@@ -1,0 +1,22 @@
+<!-- delete_drive.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Activity</title>
+</head>
+<body>
+    <h1>Delete Activity</h1>
+    <p>Are you sure you want to delete "{{activity.title}}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <a class="btn btn--sub btn--lg my-md" href="{% url 'activities' %}"> Go back </a>
+        <input
+          class="btn btn--sub btn--lg my-md"
+          type="submit"
+          value="Submit"
+        />
+    </form>
+</body>
+</html>

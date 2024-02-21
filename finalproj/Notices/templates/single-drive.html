@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ drive.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <h1>Drive Details</h1>
+    <div class="drive-details">
+        <h2>{{ drive.title }}</h2>
+        <img src="{{ drive.company_logo.url }}" alt="Company Logo" class="logo">
+
+        <p><strong>Company Name:</strong> {{ drive.company_name }}</p>
+        <p><strong>Date:</strong> {{ drive.date }}</p>
+        <p><strong>About:</strong> {{ drive.content }}</p>
+        <p><strong>Bond:</strong> {{ drive.Bond }}</p>
+        <p><strong>Industry Type:</strong> {{ drive.industry_type }}</p>
+        <p><strong>Departments:</strong>
+            {% for department in drive.department.all %}
+                {{ department.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            </p>
+        <p><strong>Job Role:</strong> {{ drive.job_role }}</p>
+        <p><strong>Job Location:</strong> {{ drive.job_location }}</p>
+        <p><strong>Job Eligibility:</strong> {{ drive.job_eligibility }}</p>
+        <p><strong>Selection Process:</strong> {{ drive.selection_process }}</p>
+        <p><strong>Job CTC:</strong> {{ drive.job_CTC }}</p>
+        <!-- Add more fields as needed -->
+        <a href="{% url 'all-drives' %}" class="back-link">Back to All Drives</a>
+    </div>
+</body>
+</html>
+

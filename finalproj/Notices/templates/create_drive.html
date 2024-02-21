@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Drive</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/create_drive.css' %}">
+</head>
+<body>
+
+<div class="card">
+  <h1 class="dropdown-btn">Drive</h1>
+  <div class="card-body hidden">
+    <form id="jobForm"  method="POST"  enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+
+      <button type="submit" class="btn btn-submit">Create</button>
+    </form>
+  </div>
+</div>
+
+<script src="{% static 'js/create_drive.js' %}"></script>
+
+
+</body>
+</html>
+
+
+
+

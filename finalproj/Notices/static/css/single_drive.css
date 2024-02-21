@@ -1,0 +1,39 @@
+/* Define your styles for single_drive.html here */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+h1,
+h2 {
+    color: #333;
+}
+
+.drive-details {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.drive-details h2 {
+    color: #248cc0;
+    margin-bottom: 10px;
+}
+
+.drive-details p {
+    margin-bottom: 5px;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: #248cc0;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
