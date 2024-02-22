@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Single Card</title>
+      <link rel="stylesheet" href="trailcard.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+      <div class="container">
+         <!-- Start of loop for generating cards -->
+         {% for card_data in cards %}
+         <div class="card">
+            <div class="img">
+               <img src="{{ card_data.image_url }}">
+            </div>
+            <div class="top-text">
+               <div class="name">
+                  {{ card_data.name }}
+               </div>
+               <p>
+                  {{ card_data.departments }}
+               </p>
+            </div>
+            <div class="bottom-text">
+               <div class="text">
+                  Job Role: {{ card_data.job_role }}
+               </div>
+               <div class="btn">
+                  <a href="#">Read more</a>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+         <!-- End of loop for generating cards -->
+      </div>
+   </body>
+</html>
