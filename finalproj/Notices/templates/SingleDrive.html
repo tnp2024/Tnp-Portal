@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ drive.title }}</title>
+    <link rel="stylesheet" type="text/css" href="C:\UiKit\TNP ADMIN\Drive Card\SingleDrive.css">
+</head>
+<body>
+    <div class="centered-container">
+        <div class="box-button">
+            <div class="drive-details">
+                <h2>{{ drive.title }}</h2>
+                <img src="{{ drive.company_logo.url }}" alt="Company Logo" class="logo">
+                <div class="details-container">
+                    <div class="detail-item">
+                        <p><strong>Company Name:</strong> {{ drive.company_name }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>Date:</strong> {{ drive.date }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>About:</strong> {{ drive.content }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>Bond:</strong> {{ drive.Bond }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>Industry Type:</strong> {{ drive.industry_type }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>Departments:</strong>
+                            {% for department in drive.department.all %}
+                                {{ department.name }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>Job Role:</strong> {{ drive.job_role }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>Job Location:</strong> {{ drive.job_location }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>Job Eligibility:</strong> {{ drive.job_eligibility }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>Selection Process:</strong> {{ drive.selection_process }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <p><strong>Job CTC:</strong> {{ drive.job_CTC }}</p>
+                    </div>
+                    <!-- Add more fields as needed -->
+                </div>
+                <a href="{% url 'all-drives' %}" class="back-link">Back to All Drives</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
