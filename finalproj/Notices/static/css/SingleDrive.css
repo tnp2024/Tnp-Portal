@@ -14,16 +14,9 @@ body {
     margin-bottom: auto;
     margin-left: 50%; /* Start from center */
     transform: translateX(-50%); /* Center the container */
-    margin-right: 20px; /* Add margin from the right side */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px; /* Add padding from the left side */
-    padding-right: 20px; /* Add padding from the right side */
+    padding: 20px;
     width: 100%; /* Adjust width to compensate for margin and padding */
     max-width: 800px; /* Adjust maximum width */
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow-y: auto; /* Enable vertical scrolling if content exceeds viewport */
 }
 
@@ -34,29 +27,29 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Prevent box shadow from overflowing */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    width: 100%; /* Ensure the card takes up the full width of the container */
-
+    width: auto; /* Allow drive-details to expand as needed */
 }
 
-.logo {
-    max-width: 200px;
+.logo-container {
+    display: flex;
+    justify-content: center; /* Center the logo horizontally */
     margin-bottom: 20px;
 }
 
-.details-container {
-    /* Remove grid layout */
-    display: block;
+.logo {
+    max-width: 100%; /* Ensure the logo fits the container */
+    max-height: 200px; /* Limit the maximum height of the logo */
+    width: auto; /* Allow the width to adjust based on the image size */
+    height: auto; /* Allow the height to adjust based on the image size */
+}
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.detail-item {
-    /* Remove grid item styles */
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px; /* Add margin bottom to separate detail items */
-}
-
-.back-link {
+.back-link,
+.download-link {
     display: inline-block;
     padding: 10px 20px;
     background-color: #333;
@@ -66,6 +59,11 @@ body {
     transition: background-color 0.3s;
 }
 
-.back-link:hover {
+.back-link:hover,
+.download-link:hover {
     background-color: #555;
+}
+
+.detail-item p {
+    margin: 10px 0; /* Adjust margin between detail items */
 }
