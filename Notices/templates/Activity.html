@@ -1,0 +1,41 @@
+
+                  {% extends 'main.html' %}
+
+                  {% block content %}
+                  
+                  
+                        <div class="container">
+                           <!-- Start of loop for generating cards -->
+                           {% for activity in activities %}
+                           <div class="card">
+                              <div class="img">
+                                 <img src="{{ activity.company_logo.url }}">
+                              </div>
+                              <div class="top-text">
+                                 <div class="name">
+                                  {{ activity.title }}
+                                 </div>
+                                 <!-- <p>
+                                 <p>{{ activity.company_name }}</p> 
+
+                                 </p> -->
+                                 <div class="text">
+                                  Date: {{ activity.activity_date }}
+                                 </div>
+                              </div>
+                              <div class="bottom-text">
+                                
+                                 <div class="btn">
+                                    <a href="{% url 'activity' activity.activity_id %}">Read more</a>
+                  
+                                 </div>
+                              </div>
+                           </div>
+                           {% endfor %}
+                           <!-- End of loop for generating cards -->
+                        </div>
+                     </body>
+                  </html>
+                  {% endblock content %}
+    
+    

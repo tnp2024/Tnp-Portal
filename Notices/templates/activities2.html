@@ -1,0 +1,23 @@
+{% extends 'main.html' %} {% block content %} {% for activity in activities %}
+<div class="card">
+  <div class="img">
+    <img src="{{ activity.company_logo.url }}" alt="Company Logo" />
+  </div>
+  <div class="top-text">
+    <div class="name">{{ activity.title }}</div>
+    <p>Industry Type: {{ activity.industry_type }}</p>
+  </div>
+  <div class="bottom-text">
+    <div class="text">Date: {{ activity.activity_date }}</div>
+    <div class="btn">
+      <a href="{% url 'activity' activity.activity_id %}">Read more</a>
+    </div>
+    <div class="btn">
+      <a href="{% url 'update-activity' activity.activity_id %}">Edit</a>
+    </div>
+    <div class="btn">
+      <a href="{% url 'delete-activity' activity.activity_id %}">Delete</a>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endblock %}

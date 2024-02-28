@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+      <div class="container">
+         <!-- Start of loop for generating cards -->
+         {% for drive in alldrives %}
+         <div class="card">
+            <div class="img">
+               <img src="{{ drive.company_logo.url }}">
+            </div>
+            <div class="top-text">
+               <div class="name">
+                Role: {{ drive.job_role }}
+               </div>
+               <p>
+                <p>CTC: {{ drive.job_CTC }}</p>
+                
+               </p>
+               <div class="text">
+                Date: {{ drive.date }}
+               </div>
+            </div>
+            <div class="bottom-text">
+               
+               <div class="btn">
+                  <a href="{% url 'drive' drive.drive_id %}">Read more</a>
+
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+         <!-- End of loop for generating cards -->
+      </div>
+   </body>
+</html>
+{% endblock content %}

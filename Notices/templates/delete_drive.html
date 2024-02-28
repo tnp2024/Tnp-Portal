@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h1>Delete Drive</h1>
+    <p>Are you sure you want to delete "{{drive.title}}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <a class="btn btn--sub btn--lg my-md" href="{% url 'all-drives' %}"> Go back </a>
+        <input
+          class="btn btn--sub btn--lg my-md"
+          type="submit"
+          value="Submit"
+        />
+    </form>
+
+{% endblock content %}    
+
